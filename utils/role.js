@@ -20,5 +20,15 @@ const viewRoles = function (connection) {
 }
 
 //add a role
+const addRoles = function (connection, newRoleTitle, newRoleSalary, newRoleDepartmentID) {
+    connection.query(
+        `INSERT INTO roles (title, salary, departments_id) VALUES (?,?,?)`,
+        [newRoleTitle, newRoleSalary, newRoleDepartmentID],
+        function (err, results, fields) {
+            if (err) throw err;
+            console.table(results); // results contains rows returned by server
+        }
+    );
+};
 
-module.exports = viewRoles
+module.exports = { viewRoles, addRoles }

@@ -12,9 +12,19 @@ const viewDepartments = function (connection) {
             console.table(results); // results contains rows returned by server
         }
     );
-}
+};
 
 
 //add department
+const addDepartments = function (connection, newDepartment) {
+    connection.query(
+        `INSERT INTO departments (name) VALUES ?`,
+        [newDepartment],
+        function (err, results, fields) {
+            if (err) throw err;
+            console.table(results); // results contains rows returned by server
+        }
+    );
+};
 
-module.exports = viewDepartments
+module.exports = { viewDepartments, addDepartments }

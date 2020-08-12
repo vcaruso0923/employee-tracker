@@ -25,7 +25,27 @@ const viewEmployees = function (connection) {
 }
 
 //add employee
+const addEmployees = function (connection, newFirstName, newLastName, newRolesID, newManagerID) {
+    connection.query(
+        `INSERT INTO employees (first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)`,
+        [newFirstName, newLastName, newRolesID, newManagerID],
+        function (err, results, fields) {
+            if (err) throw err;
+            console.table(results); // results contains rows returned by server
+        }
+    );
+};
 
 //update employee role
+const updateEmployeeRole = function (connection, newRoleID, employeeToChange) {
+    connection.query(
+        `UPDATE employees SET roles_id = ? WHERE id = ?`,
+        [newRoleID, employeeToChange],
+        function (err, results, fields) {
+            if (err) throw err;
+            console.table(results); // results contains rows returned by server
+        }
+    )
+}
 
-module.exports = viewEmployees
+module.exports = { viewEmployees, addEmployees, updateEmployeeRole }
