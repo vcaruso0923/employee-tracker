@@ -18,7 +18,7 @@ Clone the repository, then move into the directory. Run 'npm install' to install
 
 ## Usage
 
-Git bash in the root directory. Type 'npm start'. You may view employees, departments, or roles in the database, or you may add any one of them. You may also update an employee's roll.
+Open the root directory in a terminal. Type 'npm start'. You may view employees, departments, or roles in the database, or you may add any one of them. You may also update an employee's roll.
 
 ## License
 
