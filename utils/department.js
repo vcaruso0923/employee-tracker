@@ -22,7 +22,7 @@ const addDepartments = function (connection, newDepartment) {
         [newDepartment],
         function (err, results, fields) {
             if (err) throw err;
-            console.table(results); // results contains rows returned by server
+            console.log("Your department has been added!"); // results contains rows returned by server
         }
     );
 };

@@ -29,25 +29,21 @@ const mainMenu = function () {
     .then(({ menu }) => {
       if (menu === 'View all employees') {
         employeeFunctions.viewEmployees(connection);
-        return mainMenu();
+        setTimeout(mainMenu, 1000);
       } else if (menu === 'View all departments') {
         departmentFunctions.viewDepartments(connection);
-        return mainMenu();
+        setTimeout(mainMenu, 1000);
       } else if (menu === 'View all roles') {
         roleFunctions.viewRoles(connection)
-        return mainMenu();
+        setTimeout(mainMenu, 1000);
       } else if (menu === 'Add a department') {
         addDepartmentHandler();
-        return mainMenu();
       } else if (menu === 'Add a Role') {
         addRoleHandler();
-        return mainMenu();
       } else if (menu === 'Add an employee') {
         addEmployeeHandler()
-        return mainMenu();
       } else if (menu === 'Update an employee role') {
         updateEmployeeHandler();
-        return mainMenu();
       } else if (menu === 'Exit') {
         console.log("Goodbye!")
         return
@@ -61,10 +57,23 @@ const mainMenu = function () {
 //add dptm
 const addDepartmentHandler = function () {
   inquirer.prompt([
-
+    {
+      type: 'text',
+      name: 'name',
+      message: 'What is the name of this department?',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a department name!');
+          return false;
+        }
+      }
+    }
   ])
-    .then(({ returnthingything }) => {
-
+    .then(({ name }) => {
+      departmentFunctions.addDepartments(connection, name);
+      setTimeout(mainMenu, 1000);
     })
     .catch(err => {
       console.log(err)
@@ -74,10 +83,49 @@ const addDepartmentHandler = function () {
 //add role
 const addRoleHandler = function () {
   inquirer.prompt([
-
+    {
+      type: 'text',
+      name: 'title',
+      message: 'What is the title of this role?',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a role title!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'text',
+      name: 'salary',
+      message: 'What is the salary of this role?',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a role salary!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'text',
+      name: 'department_id',
+      message: 'What is the ID of the department this role belongs to?',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a department ID!');
+          return false;
+        }
+      }
+    }
   ])
-    .then(({ returnthingything }) => {
-
+    .then(({ title, salary, department_id }) => {
+      roleFunctions.addRoles(connection, title, salary, department_id);
+      setTimeout(mainMenu, 1000);
     })
     .catch(err => {
       console.log(err)
@@ -87,10 +135,54 @@ const addRoleHandler = function () {
 //add employee
 const addEmployeeHandler = function () {
   inquirer.prompt([
-
+    {
+      type: 'text',
+      name: 'first_name',
+      message: 'What is the first name of this employee?',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a name!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'text',
+      name: 'last_name',
+      message: 'What is the last name of this employee?',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a name!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'text',
+      name: 'role_id',
+      message: 'What is the ID of the role this employee is in?',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a role ID!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'text',
+      name: 'manager_id',
+      message: 'What is the ID of this employees manager? (Leave blank if N/A)',
+    }
   ])
-    .then(({ returnthingything }) => {
-
+    .then(({ first_name, last_name, role_id, manager_id }) => {
+      employeeFunctions.addEmployees(connection, first_name, last_name, role_id, manager_id);
+      setTimeout(mainMenu, 1000);
     })
     .catch(err => {
       console.log(err)
@@ -104,6 +196,7 @@ const updateEmployeeHandler = function () {
   ])
     .then(({ returnthingything }) => {
 
+      setTimeout(mainMenu, 1000);
     })
     .catch(err => {
       console.log(err)

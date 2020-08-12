@@ -26,7 +26,7 @@ const addRoles = function (connection, newRoleTitle, newRoleSalary, newRoleDepar
         [newRoleTitle, newRoleSalary, newRoleDepartmentID],
         function (err, results, fields) {
             if (err) throw err;
-            console.table(results); // results contains rows returned by server
+            console.log("Your new role has been added!"); // results contains rows returned by server
         }
     );
 };

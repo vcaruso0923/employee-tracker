@@ -31,7 +31,7 @@ const addEmployees = function (connection, newFirstName, newLastName, newRolesID
         [newFirstName, newLastName, newRolesID, newManagerID],
         function (err, results, fields) {
             if (err) throw err;
-            console.table(results); // results contains rows returned by server
+            console.log("Your employee has been added!"); // results contains rows returned by server
         }
     );
 };
@@ -43,7 +43,7 @@ const updateEmployeeRole = function (connection, newRoleID, employeeToChange) {
         [newRoleID, employeeToChange],
         function (err, results, fields) {
             if (err) throw err;
-            console.table(results); // results contains rows returned by server
+            console.log("Your employee's role has been updated!"); // results contains rows returned by server
         }
     )
 }
