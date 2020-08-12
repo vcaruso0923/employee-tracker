@@ -2,7 +2,7 @@ const cTable = require('console.table');
 
 //view all employees
 const viewEmployees = function (connection) {
-    connection.query(
+    connection.execute(
         `SELECT
         employees.first_name as 'First Name',
             employees.last_name as 'Last Name',
@@ -26,7 +26,7 @@ const viewEmployees = function (connection) {
 
 //add employee
 const addEmployees = function (connection, newFirstName, newLastName, newRolesID, newManagerID) {
-    connection.query(
+    connection.execute(
         `INSERT INTO employees (first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)`,
         [newFirstName, newLastName, newRolesID, newManagerID],
         function (err, results, fields) {
@@ -38,7 +38,7 @@ const addEmployees = function (connection, newFirstName, newLastName, newRolesID
 
 //update employee role
 const updateEmployeeRole = function (connection, newRoleID, employeeToChange) {
-    connection.query(
+    connection.execute(
         `UPDATE employees SET roles_id = ? WHERE id = ?`,
         [newRoleID, employeeToChange],
         function (err, results, fields) {

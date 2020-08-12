@@ -5,7 +5,7 @@ const { identity } = require('rxjs');
 
 //view all roles
 const viewRoles = function (connection) {
-    connection.query(
+    connection.execute(
         `SELECT 
         title as 'Role',
         roles.id as 'Role ID',
@@ -21,7 +21,7 @@ const viewRoles = function (connection) {
 
 //add a role
 const addRoles = function (connection, newRoleTitle, newRoleSalary, newRoleDepartmentID) {
-    connection.query(
+    connection.execute(
         `INSERT INTO roles (title, salary, departments_id) VALUES (?,?,?)`,
         [newRoleTitle, newRoleSalary, newRoleDepartmentID],
         function (err, results, fields) {

@@ -2,7 +2,7 @@ const cTable = require('console.table');
 
 //view all departments
 const viewDepartments = function (connection) {
-    connection.query(
+    connection.execute(
         `SELECT 
         name as 'Department Name',
         id as 'Department ID'
@@ -17,8 +17,8 @@ const viewDepartments = function (connection) {
 
 //add department
 const addDepartments = function (connection, newDepartment) {
-    connection.query(
-        `INSERT INTO departments (name) VALUES ?`,
+    connection.execute(
+        `INSERT INTO departments (name) VALUES (?)`,
         [newDepartment],
         function (err, results, fields) {
             if (err) throw err;
