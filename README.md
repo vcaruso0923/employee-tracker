@@ -3,6 +3,9 @@
 
 A command line application for keeping track of employees, their roles, and their departments.
 
+## Instructional / Demonstrational Video
+https://drive.google.com/file/d/193l3meTyU_OfVlf99ERF-Wqn7_au2h01/view
+
 ## Table of Contents
 
 * [Installation](#installation)
