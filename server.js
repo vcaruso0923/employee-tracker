@@ -45,7 +45,7 @@ const mainMenu = function () {
       } else if (menu === 'Update an employee role') {
         updateEmployeeHandler();
       } else if (menu === 'Exit') {
-        console.log("Goodbye!")
+        console.log("Goodbye! Press Ctrl+C to terminate.")
         return
       }
     })

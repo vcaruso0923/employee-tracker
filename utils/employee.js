@@ -4,8 +4,9 @@ const cTable = require('console.table');
 const viewEmployees = function (connection) {
     connection.execute(
         `SELECT
-        employees.first_name as 'First Name',
+            employees.first_name as 'First Name',
             employees.last_name as 'Last Name',
+            employees.id as 'Employee ID',
             departments.name as 'Department',
             roles.title as 'Role',
             roles.salary as 'Salary',
