@@ -192,10 +192,35 @@ const addEmployeeHandler = function () {
 //update employee's role
 const updateEmployeeHandler = function () {
   inquirer.prompt([
-
+    {
+      type: 'text',
+      name: 'employee_id',
+      message: 'What is the ID of the employee you want to make changes to?',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter an employee ID!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'text',
+      name: 'role_id',
+      message: 'What is the ID of the role you want to assign this employee to?',
+      validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter a role ID!');
+          return false;
+        }
+      }
+    },
   ])
-    .then(({ returnthingything }) => {
-
+    .then(({ employee_id, role_id }) => {
+      employeeFunctions.updateEmployeeRole(connection, employee_id, role_id)
       setTimeout(mainMenu, 1000);
     })
     .catch(err => {

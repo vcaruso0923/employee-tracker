@@ -12,7 +12,8 @@ const viewRoles = function (connection) {
         salary as 'Role Salary',
         departments.name as 'Role Department'
         FROM roles
-        INNER JOIN departments`,
+        INNER JOIN departments
+        ON departments.id = departments_id`,
         function (err, results, fields) {
             console.table(results); // results contains rows returned by server
         }

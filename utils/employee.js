@@ -37,7 +37,7 @@ const addEmployees = function (connection, newFirstName, newLastName, newRolesID
 };
 
 //update employee role
-const updateEmployeeRole = function (connection, newRoleID, employeeToChange) {
+const updateEmployeeRole = function (connection, employeeToChange, newRoleID) {
     connection.execute(
         `UPDATE employees SET roles_id = ? WHERE id = ?`,
         [newRoleID, employeeToChange],
