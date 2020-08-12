@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   database: 'employees_db',
-  password: "Footballv97!"
+  password: "ENTER PASSWORD HERE"
 });
 
 //THEN I am presented with the following options: view all departments, view all roles, view all employees, add a department, add a role, add an employee, and update an employee role
