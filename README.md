@@ -15,6 +15,8 @@ https://drive.google.com/file/d/193l3meTyU_OfVlf99ERF-Wqn7_au2h01/view
 * [Tests](#tests)
 * [Questions](#questions)
 
+![employee tracker](https://user-images.githubusercontent.com/62676730/100022051-5ab42880-2d97-11eb-897c-0b27f44103ed.PNG)
+
 ## Installation
 
 Clone the repository, then move into the directory. Run 'npm install' to install the node modules. Then move into the /db directory. You have to set up the database with mysql. Type 'mysql -u root -p', hit enter, and then enter your password. (Note: your username maybe different that 'root' and you may not have a password. Next, type 'source schema.sql' to create the database. If you would like to work with some dummy data, next type 'source seeds.sql'. If you want to enter data all on your own, do not use the seeds file. The type 'quit' to exit mysql. Lastly, open up the 'server.js' file in an editor, and at lines 12 and 14 enter your mysql username and password as needed. 
